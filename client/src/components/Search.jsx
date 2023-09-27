@@ -1,26 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search';
-import {
-	TextField,
-	InputAdornment,
-	IconButton,
-	createTheme,
-	useMediaQuery,
-} from '@mui/material';
+import { TextField, InputAdornment, IconButton } from '@mui/material';
 
 export default function Search() {
-	const theme = createTheme({
-		breakpoints: {
-			values: {
-				xs: 0,
-				sm: 600,
-				md: 720,
-				lg: 1200,
-				xl: 1536,
-			},
-		},
-	});
-	const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-
 	return (
 		<TextField
 			placeholder="Search ..."
@@ -30,8 +11,7 @@ export default function Search() {
 					color: '#333333',
 				},
 				{
-					width: isMatch ? '225px' : '320px',
-					maxWidth: '320px',
+					width: '400px',
 					borderRadius: '10px',
 					backgroundColor: '#F4F7FF',
 					border: 'none',

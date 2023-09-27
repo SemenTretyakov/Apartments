@@ -1,18 +1,45 @@
-import { AppBar, Toolbar, Container, Link } from '@mui/material';
+import {
+	AppBar,
+	Toolbar,
+	Container,
+	Link,
+	Typography,
+	Stack,
+} from '@mui/material';
 import Search from './Search';
+import logoSvg from '/logo.svg';
 
 export default function Header() {
 	return (
-		<AppBar position="static" sx={{ p: 0, m: 0 }}>
-			<Toolbar disableGutters={true}>
-				<Container
-					maxWidth="xl"
-					sx={{ display: 'flex', justifyContent: 'center' }}
-				>
-					<Link href="/">
-						<img src="logoSVG" alt="logo" />
-					</Link>
-					<Search />
+		<AppBar
+			position="static"
+			sx={{
+				background: '#fff',
+				height: '120px',
+			}}
+		>
+			<Toolbar
+				disableGutters={true}
+				sx={{
+					boxShadow: '0px 4px 30px 0px rgba(0, 0, 0, 0.08)',
+					p: '20px 30px',
+				}}
+			>
+				<Container maxWidth="xl">
+					<Stack
+						direction="row"
+						sx={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							alignItems: 'center',
+						}}
+					>
+						<Link href="/" display="flex" alignItems="center" columnGap={2}>
+							<img src={logoSvg} alt="logo" />
+							<Typography color="#333">Esoft</Typography>
+						</Link>
+						<Search />
+					</Stack>
 				</Container>
 			</Toolbar>
 		</AppBar>
