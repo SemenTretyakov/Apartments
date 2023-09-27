@@ -1,11 +1,11 @@
 const express = require('express');
-const sequelize = require('./src/db');
-const apartmentRoutes = require('./src/routes/apartment.routes');
+const sequelize = require('./src/config/db');
 const {
 	importDataFromCSV,
 	bulkInsertApartments,
 } = require('./src/utils/dataImporter');
 const cors = require('cors');
+const router = require('./src/routes/index');
 
 const PORT = 3000;
 
@@ -13,13 +13,18 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/apartments', apartmentRoutes);
 
 app.use(
 	express.urlencoded({
 		extended: false,
 	})
 );
+
+app.get('/', (req, res) => {
+	res.send('Доступные маршруты: /apartments');
+});
+
+app.use('/api', router);
 
 const start = async () => {
 	try {
