@@ -7,7 +7,6 @@ const Apartment = sequelize.define('Apartment', {
 		allowNull: false,
 		primaryKey: true,
 		autoIncrement: true,
-		unique: true,
 	},
 	floor: DataTypes.INTEGER,
 	pos_on_floor: DataTypes.INTEGER,
