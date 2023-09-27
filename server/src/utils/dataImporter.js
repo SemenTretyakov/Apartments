@@ -1,6 +1,6 @@
 const fs = require('fs');
 const csv = require('csv-parser');
-const Apartment = require('../models/apartment');
+const Apartment = require('../models/apartment.model');
 
 async function importDataFromCSV(filePath) {
 	try {
