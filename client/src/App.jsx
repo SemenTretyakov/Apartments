@@ -3,19 +3,22 @@ import './App.css';
 import Home from './pages/Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Home />,
-	},
-	{
-		path: '*',
-		element: <NotFound />,
-	},
-]);
+import { useState } from 'react';
 
 function App() {
+	const [searchValue, setSearchValue] = useState('');
+	const router = createBrowserRouter([
+		{
+			path: '/',
+			element: (
+				<Home searchValue={searchValue} setSearchValue={setSearchValue} />
+			),
+		},
+		{
+			path: '*',
+			element: <NotFound />,
+		},
+	]);
 	return (
 		<div className="App">
 			<RouterProvider router={router} />

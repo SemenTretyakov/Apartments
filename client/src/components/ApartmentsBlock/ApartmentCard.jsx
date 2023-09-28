@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Typography, CardMedia, CardContent, Card } from '@mui/material';
+import { generateTitle } from '../../utils/generateTitle';
 
 export default function ApartmentCard({ apartment }) {
 	return (
@@ -26,8 +27,7 @@ export default function ApartmentCard({ apartment }) {
 			/>
 			<CardContent sx={{ mt: 3 }}>
 				<Typography gutterBottom variant="h4" component="div" color="#2B67F6">
-					{apartment.rooms}-комн. кв., {apartment.area_total} м²,{' '}
-					{apartment.floor}/4 этаж
+					{generateTitle(apartment)}
 				</Typography>
 				<Typography variant="h5" color="text.secondary" mt={3}>
 					Цена: <b>{apartment.price}</b> ₽

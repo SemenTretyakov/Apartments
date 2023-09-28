@@ -1,11 +1,15 @@
+/* eslint-disable react/prop-types */
 import SearchIcon from '@mui/icons-material/Search';
 import { TextField, InputAdornment, IconButton } from '@mui/material';
 
-export default function Search() {
+export default function Search({ searchValue, setSearchValue }) {
+	console.log(searchValue);
 	return (
 		<TextField
 			placeholder="Search ..."
 			type="search"
+			value={searchValue}
+			onChange={(e) => setSearchValue(e.target.value)}
 			sx={
 				({
 					color: '#333333',

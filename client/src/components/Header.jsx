@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
 	AppBar,
 	Toolbar,
@@ -9,7 +10,7 @@ import {
 import Search from './Search';
 import logoSvg from '/logo.svg';
 
-export default function Header() {
+export default function Header({ searchValue, setSearchValue }) {
 	return (
 		<AppBar
 			position="static"
@@ -38,7 +39,7 @@ export default function Header() {
 							<img src={logoSvg} alt="logo" />
 							<Typography color="#333">Esoft</Typography>
 						</Link>
-						<Search />
+						<Search searchValue={searchValue} setSearchValue={setSearchValue} />
 					</Stack>
 				</Container>
 			</Toolbar>
