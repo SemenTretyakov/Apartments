@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import { Typography, CardMedia, CardContent, Card } from '@mui/material';
 
 export default function ApartmentCard({ apartment }) {
 	return (
@@ -13,6 +10,11 @@ export default function ApartmentCard({ apartment }) {
 				marginTop: '25px',
 				boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.08)',
 				borderRadius: '20px',
+				transition: 'all 0.35s ease',
+				'&:hover': {
+					cursor: 'pointer',
+					boxShadow: '0px 12px 25px rgba(0, 0, 0, 0.25)',
+				},
 			}}
 		>
 			<CardMedia
@@ -22,13 +24,16 @@ export default function ApartmentCard({ apartment }) {
 				alt="Chevrolet"
 				image={apartment.layout_image}
 			/>
-			<CardContent>
+			<CardContent sx={{ mt: 3 }}>
 				<Typography gutterBottom variant="h4" component="div" color="#2B67F6">
 					{apartment.rooms}-комн. кв., {apartment.area_total} м²,{' '}
 					{apartment.floor}/4 этаж
 				</Typography>
-				<Typography variant="h5" color="text.secondary">
-					Цена: {apartment.price} ₽
+				<Typography variant="h5" color="text.secondary" mt={3}>
+					Цена: <b>{apartment.price}</b> ₽
+				</Typography>
+				<Typography variant="h6" color="text.secondary" mt={1}>
+					{Math.round(apartment.price / apartment.area_total)} ₽/м²
 				</Typography>
 			</CardContent>
 		</Card>
