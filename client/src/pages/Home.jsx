@@ -6,6 +6,7 @@ import SkeletonApartments from '../components/ApartmentsBlock/Skeleton';
 import ApartmentCard from '../components/ApartmentsBlock/ApartmentCard';
 import Header from '../components/Header';
 import { generateTitle } from '../utils/generateTitle';
+import PaginationApartment from '../components/PaginationApartment';
 
 export default function Home({ searchValue, setSearchValue }) {
 	const [apartments, setApartments] = useState([]);
@@ -47,6 +48,7 @@ export default function Home({ searchValue, setSearchValue }) {
 								<ApartmentCard key={apartment.id} apartment={apartment} />
 						))}
 				</div>
+				<PaginationApartment />
 			</Container>
 		</>
 	);
