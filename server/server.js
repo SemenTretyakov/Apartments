@@ -20,10 +20,6 @@ app.use(
 	})
 );
 
-app.get('/', (req, res) => {
-	res.send('Доступные маршруты: /apartments');
-});
-
 app.use('/api', router);
 
 const start = async () => {
