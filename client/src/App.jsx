@@ -1,9 +1,9 @@
 import './App.css';
-// import AppRouter from './components/AppRouter';
 import Home from './pages/Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import { useState } from 'react';
+import ItemApartment from './components/ItemApartment';
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');
@@ -17,6 +17,10 @@ function App() {
 		{
 			path: '*',
 			element: <NotFound />,
+		},
+		{
+			path: '/apartments/:id',
+			element: <ItemApartment />,
 		},
 	]);
 	return (

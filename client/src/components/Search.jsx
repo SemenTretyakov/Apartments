@@ -3,7 +3,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { TextField, InputAdornment, IconButton } from '@mui/material';
 
 export default function Search({ searchValue, setSearchValue }) {
-	console.log(searchValue);
 	return (
 		<TextField
 			placeholder="Search ..."

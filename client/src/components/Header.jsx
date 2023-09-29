@@ -17,12 +17,12 @@ export default function Header({ searchValue, setSearchValue }) {
 			sx={{
 				background: '#fff',
 				height: '120px',
+				boxShadow: '0px 4px 30px 0px rgba(0, 0, 0, 0.08)',
 			}}
 		>
 			<Toolbar
 				disableGutters={true}
 				sx={{
-					boxShadow: '0px 4px 30px 0px rgba(0, 0, 0, 0.08)',
 					p: '20px 30px',
 				}}
 			>
