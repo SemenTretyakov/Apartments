@@ -1,0 +1,83 @@
+/* .oneFl {
+	transition: all 0.5s ease;
+}
+
+.oneFl:hover {
+	cursor: pointer;
+	background-color: #0db363;
+}
+
+.twoFl {
+	transition: all 0.5s ease;
+}
+
+.twoFl:hover {
+	cursor: pointer;
+	background-color: #dc93ff;
+}
+
+.threeFl {
+	transition: all 0.5s ease;
+}
+
+.threeFl:hover {
+	cursor: pointer;
+	background-color: #c1c1c1;
+}
+
+.fourFl {
+	transition: all 0.5s ease;
+}
+
+.fourFl:hover {
+	cursor: pointer;
+	background-color: #1bb2a9;
+}
+
+.fiveFl {
+	transition: all 0.5s ease;
+}
+
+.fiveFl:hover {
+	cursor: pointer;
+	background-color: #ffa1a1;
+}
+
+.sixFl {
+	transition: all 0.5s ease;
+}
+
+.sixFl:hover {
+	cursor: pointer;
+	background-color: #bdff69;
+} */
+.selectedApartment {
+	cursor: pointer;
+	background-color: #0db363 !important; /* Use !important to ensure it takes precedence */
+	transition: all 0.5s ease;
+}
+
+/* Styles for other apartments when not selected */
+.oneFl:hover:not(.selectedApartment) {
+	background-color: #dc93ff !important; /* Use !important to ensure it takes precedence */
+}
+
+.twoFl:hover:not(.selectedApartment) {
+	background-color: #c1c1c1 !important; /* Use !important to ensure it takes precedence */
+}
+
+.threeFl:hover:not(.selectedApartment) {
+	background-color: #1bb2a9 !important; /* Use !important to ensure it takes precedence */
+}
+
+.fourFl:hover:not(.selectedApartment) {
+	background-color: #ffa1a1 !important; /* Use !important to ensure it takes precedence */
+}
+
+.fiveFl:hover:not(.selectedApartment) {
+	background-color: #bdff69 !important; /* Use !important to ensure it takes precedence */
+}
+
+.sixFl:hover:not(.selectedApartment) {
+	background-color: #bdff69 !important; /* Use !important to ensure it takes precedence */
+}
