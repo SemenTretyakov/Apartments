@@ -7,7 +7,7 @@ import sixFl from '../assets/images/sixFl.svg';
 import hallway from '../assets/images/hallway.svg';
 import { Link as RouterLink } from 'react-router-dom';
 import { useState } from 'react';
-import styles from './ItemApartment.module.css';
+import styles from '../components/ProductItem/ItemApartment.module.css';
 import { Link, Stack } from '@mui/material';
 import { useGetApartmentByIdQuery } from '../redux/ApartmentApi';
 import { useParams } from 'react-router-dom';

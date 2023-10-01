@@ -9,6 +9,7 @@ export default function ApartmentCard({ apartment }) {
 	const handleCardClick = () => {
 		navigate(`/apartments/${apartment.id}`);
 	};
+
 	return (
 		<Card
 			onClick={handleCardClick}

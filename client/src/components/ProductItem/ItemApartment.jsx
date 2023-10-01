@@ -8,17 +8,17 @@ import {
 	Button,
 	Container,
 } from '@mui/material';
-import { generateTitle } from '../utils/generateTitle';
-import MyBreadCrumbs from './MyBreadcrumbs';
-import { convertDateFormat } from '../utils/convertDateFormat';
-import { separateNumber } from '../utils/separateNumber';
+import { generateTitle } from '../../utils/generateTitle';
+import MyBreadCrumbs from '../MyBreadcrumbs';
+import { convertDateFormat } from '../../utils/convertDateFormat';
+import { separateNumber } from '../../utils/separateNumber';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import KitchenIcon from '@mui/icons-material/Kitchen';
 import WeekendIcon from '@mui/icons-material/Weekend';
 import StairsIcon from '@mui/icons-material/Stairs';
 import { useParams } from 'react-router-dom';
-import { useGetApartmentByIdQuery } from '../redux/ApartmentApi';
-import PlanFloor from './PlanFloor';
+import { useGetApartmentByIdQuery } from '../../redux/ApartmentApi';
+import PlanFloor from '../PlanFloor';
 
 export default function ItemApartment() {
 	const { id } = useParams();
@@ -27,7 +27,6 @@ export default function ItemApartment() {
 	if (!apartment) {
 		return <div>No apartments available.</div>;
 	}
-	// Обработчик для выбора квартиры
 
 	return (
 		<Container maxWidth="xl">

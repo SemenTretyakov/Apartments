@@ -11,23 +11,23 @@ export const getAllApartments = async (req, res) => {
 
 	switch (parseInt(req.query.sortParam)) {
 		case 1:
-			orderBy = 'price'; // Change 'price' to your actual field name
+			orderBy = 'price';
 			orderDirection = 'asc';
 			break;
 		case 2:
-			orderBy = 'price'; // Change 'price' to your actual field name
+			orderBy = 'price';
 			orderDirection = 'desc';
 			break;
 		case 3:
-			orderBy = 'area'; // Change 'area' to your actual field name
+			orderBy = 'area';
 			orderDirection = 'asc';
 			break;
 		case 4:
-			orderBy = 'area'; // Change 'area' to your actual field name
+			orderBy = 'area';
 			orderDirection = 'desc';
 			break;
 		default:
-			orderBy = '_id'; // Default sorting parameter
+			orderBy = '_id';
 			orderDirection = 'asc';
 			break;
 	}

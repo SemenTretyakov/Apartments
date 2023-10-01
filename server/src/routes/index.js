@@ -14,7 +14,6 @@ router.get('/apartments', async (req, res) => {
 	}
 });
 
-// Маршрут для получения данных о выбранной квартире по ID
 router.get('/apartments/:id', async (req, res) => {
 	const apartmentId = req.params.id;
 	try {

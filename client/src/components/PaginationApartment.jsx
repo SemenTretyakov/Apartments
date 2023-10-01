@@ -1,7 +1,4 @@
 import { Pagination } from '@mui/material';
-// import React, { useEffect, useState } from 'react';
-// import ReactDOM from 'react-dom';
-// import ReactPaginate from 'react-paginate';
 
 export default function PaginationApartment() {
 	return (
