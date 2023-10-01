@@ -1,3 +1,11 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding-right: 0 !important;
+}
+
 :root {
 	--max-width: 1100px;
 	--border-radius: 12px;

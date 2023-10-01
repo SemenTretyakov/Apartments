@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../db');
+const sequelize = require('../config/db');
 
 const Apartment = sequelize.define('Apartment', {
 	id: {
@@ -7,7 +7,6 @@ const Apartment = sequelize.define('Apartment', {
 		allowNull: false,
 		primaryKey: true,
 		autoIncrement: true,
-		unique: true,
 	},
 	floor: DataTypes.INTEGER,
 	pos_on_floor: DataTypes.INTEGER,

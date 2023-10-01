@@ -1,6 +1,6 @@
 const fs = require('fs');
 const csv = require('csv-parser');
-const Apartment = require('../models/apartment');
+const Apartment = require('../models/apartment.model');
 
 async function importDataFromCSV(filePath) {
 	try {
@@ -31,7 +31,18 @@ async function importDataFromCSV(filePath) {
 
 async function bulkInsertApartments(data) {
 	try {
-		await Apartment.bulkCreate(data);
+		await Apartment.bulkCreate(data, {
+			updateOnDuplicate: [
+				'floor',
+				'pos_on_floor',
+				'price',
+				'rooms',
+				'area_total',
+				'area_kitchen',
+				'area_live',
+				'layout_image',
+			],
+		});
 		console.log('Data loaded from CSV file');
 	} catch (error) {
 		throw error;

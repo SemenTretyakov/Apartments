@@ -1,11 +1,11 @@
 const express = require('express');
-const sequelize = require('./src/db');
-const apartmentRoutes = require('./src/routes/apartment');
+const sequelize = require('./src/config/db');
 const {
 	importDataFromCSV,
 	bulkInsertApartments,
-} = require('../server/src/utils/dataImporter');
+} = require('./src/utils/dataImporter');
 const cors = require('cors');
+const router = require('./src/routes/index');
 
 const PORT = 3000;
 
@@ -13,7 +13,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/apartments', apartmentRoutes);
 
 app.use(
 	express.urlencoded({
@@ -21,9 +20,7 @@ app.use(
 	})
 );
 
-app.get('/', (req, res) => {
-	res.status(200).json({ message: 'Working!!!' });
-});
+app.use('/api', router);
 
 const start = async () => {
 	try {
