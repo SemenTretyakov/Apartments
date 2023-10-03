@@ -10,8 +10,15 @@ export const apartmentsApi = createApi({
 		getApartmentById: builder.query({
 			query: (id) => `apartments/${id}`,
 		}),
+		filterApartments: builder.query({
+			query: ({ priceSort, areaSort }) =>
+				`apartments?priceSort=${priceSort}&areaSort=${areaSort}`,
+		}),
 	}),
 });
 
-export const { useGetApartmentsQuery, useGetApartmentByIdQuery } =
-	apartmentsApi;
+export const {
+	useGetApartmentsQuery,
+	useGetApartmentByIdQuery,
+	useFilterApartmentsQuery,
+} = apartmentsApi;

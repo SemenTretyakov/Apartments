@@ -12,15 +12,14 @@ const PORT = 3000;
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use('/api', router);
 
 app.use(
 	express.urlencoded({
 		extended: false,
 	})
 );
-
-app.use('/api', router);
+app.use(express.json());
 
 const start = async () => {
 	try {

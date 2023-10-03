@@ -1,21 +1,23 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-// /* eslint-disable no-unused-vars */
 import { Container, Typography } from '@mui/material';
 import SkeletonApartments from '../components/ApartmentsBlock/Skeleton';
 import ApartmentCard from '../components/ApartmentsBlock/ApartmentCard';
 import Header from '../components/Header';
-import { generateTitle } from '../utils/generateTitle';
 import PaginationApartment from '../components/PaginationApartment';
-import { useGetApartmentsQuery } from '../redux/ApartmentApi';
+import { useFilterApartmentsQuery } from '../redux/ApartmentApi';
 import { useState, useEffect } from 'react';
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearchValue } from '../redux/ApartmentSlice';
 
-export default function Home({ searchValue, setSearchValue }) {
+export default function Home() {
 	const [sortParam, setSortParam] = useState(0);
-	const { data: apartments, isLoading } = useGetApartmentsQuery(sortParam);
+	const { data: apartments, isLoading } = useFilterApartmentsQuery({
+		priceSort: sortParam === 1 ? 'desc' : 'asc',
+		areaSort: sortParam === 3 ? 'desc' : 'asc',
+	});
 	const [sortedApartments, setSortedApartments] = useState([]);
+	const dispatch = useDispatch();
+	const searchValue = useSelector((state) => state.searchValue);
 
 	const sortApartments = (apartments, sortParam) => {
 		switch (sortParam) {
@@ -24,36 +26,32 @@ export default function Home({ searchValue, setSearchValue }) {
 			case 2:
 				return [...apartments].sort((a, b) => b.price - a.price);
 			case 3:
-				return [...apartments].sort((a, b) => a.area - b.area);
+				return [...apartments].sort((a, b) => a.area_total - b.area_total);
 			case 4:
-				return [...apartments].sort((a, b) => b.area - a.area);
+				return [...apartments].sort((a, b) => b.area_total - a.area_total);
 			default:
 				return apartments;
 		}
 	};
 
 	useEffect(() => {
-		console.log('Sort param changed to:', sortParam);
 		if (apartments) {
 			const sorted = sortApartments(apartments, sortParam);
-			console.log('Sorted data:', sorted);
 			setSortedApartments(sorted);
 		}
 	}, [apartments, sortParam]);
-	console.log(apartments);
 
-	const handleSortChange = (newValue) => {
-		console.log('Sort param changed to:', newValue);
+	const handleSortChange = (event) => {
+		const newValue = event.target.value;
 		setSortParam(newValue);
 	};
 
-	const items = (sortedApartments || []).filter((obj) =>
-		generateTitle(obj).includes(searchValue)
-	);
-
 	return (
 		<>
-			<Header searchValue={searchValue} setSearchValue={setSearchValue} />
+			<Header
+				searchValue={searchValue}
+				setSearchValue={(value) => dispatch(setSearchValue(value))}
+			/>
 			<Container maxWidth="xl" sx={{ mt: '70px' }}>
 				<FormControl variant="standard" sx={{ minWidth: '280px', p: 0 }}>
 					<InputLabel id="demo-simple-select-label">Сортировка по:</InputLabel>
@@ -87,10 +85,10 @@ export default function Home({ searchValue, setSearchValue }) {
 					{isLoading
 						? [...new Array(3)].map((_, index) => (
 								<SkeletonApartments key={index} />
-						  ))
-						: items.map((apartment) => (
+						))
+						: sortedApartments.map((apartment) => (
 								<ApartmentCard key={apartment.id} apartment={apartment} />
-						  ))}
+						))}
 				</div>
 				<PaginationApartment />
 			</Container>
