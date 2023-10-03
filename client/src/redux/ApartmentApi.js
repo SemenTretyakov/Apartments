@@ -14,6 +14,9 @@ export const apartmentsApi = createApi({
 			query: ({ priceSort, areaSort }) =>
 				`apartments?priceSort=${priceSort}&areaSort=${areaSort}`,
 		}),
+		searchApartments: builder.query({
+			query: (searchTerm) => `search?searchTerm=${searchTerm}`,
+		}),
 	}),
 });
 
@@ -21,4 +24,5 @@ export const {
 	useGetApartmentsQuery,
 	useGetApartmentByIdQuery,
 	useFilterApartmentsQuery,
+	useSearchApartmentsQuery,
 } = apartmentsApi;

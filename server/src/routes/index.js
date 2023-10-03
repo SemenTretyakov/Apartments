@@ -28,24 +28,20 @@ router.get('/apartments/:id', async (req, res) => {
 	}
 });
 
-router.get('/api/search', async (req, res) => {
-	const { term } = req.query;
-
+router.get('/search', async (req, res) => {
 	try {
-		const results = await Apartment.findAll({
-			where: {
-				// Здесь вы можете определить условия поиска в зависимости от вашей модели
-				// Например, для поиска по названию квартиры, если у вас есть поле "title":
-				title: {
-					[Op.iLike]: `%${term}%`, // iLike выполняет поиск без учета регистра
-				},
-			},
-		});
+		const apartments = await Apartment.findAll();
 
-		res.json(results);
+		const searchTerm = req.query.searchTerm;
+
+		const searchResults = apartments.filter((product) =>
+			product.rooms.toString().toLowerCase().includes(searchTerm.toLowerCase())
+		);
+
+		res.json(searchResults);
 	} catch (error) {
 		console.error(error);
-		res.status(500).json({ error: 'An error occurred' });
+		res.status(500).json({ error: 'Internal Server Error' });
 	}
 });
 

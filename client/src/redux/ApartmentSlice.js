@@ -8,7 +8,7 @@ const apartmentsSlice = createSlice({
 		page: 1,
 		limit: 8,
 		pageCount: 1,
-		searchValue: '',
+		searchTerm: '',
 		sort: '_id',
 		sortParam: 0,
 	},
@@ -20,17 +20,9 @@ const apartmentsSlice = createSlice({
 			state.limit = action.payload.limit;
 			state.pageCount = action.payload.pageCount;
 		},
-		setSearchValue: (state, action) => {
-			state.searchValue = action.payload;
-		},
-		setSortParam: (state, action) => {
-			state.sort = action.payload.sort;
-			state.sortParam = action.payload.sortParam;
-		},
 	},
 });
 
-export const { setApartmentsData, setSearchValue, setSortParam } =
-	apartmentsSlice.actions;
+export const { setApartmentsData } = apartmentsSlice.actions;
 
 export default apartmentsSlice.reducer;
