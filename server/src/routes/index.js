@@ -3,17 +3,6 @@ const router = express.Router();
 const apartmentRouter = require('./apartment.routes');
 const Apartment = require('../models/apartment.model');
 
-// Маршрут для получения списка квартир
-router.get('/apartments', async (req, res) => {
-	try {
-		const apartments = await Apartment.findAll();
-		res.json(apartments);
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error: 'An error occurred' });
-	}
-});
-
 router.get('/apartments/:id', async (req, res) => {
 	const apartmentId = req.params.id;
 	try {
@@ -28,17 +17,43 @@ router.get('/apartments/:id', async (req, res) => {
 	}
 });
 
-router.get('/search', async (req, res) => {
+router.get('/apartments', async (req, res) => {
 	try {
+		const searchTerm = req.query.searchTerm;
+		const priceSort = req.query.priceSort === 'asc' ? 'asc' : 'desc';
+		const areaSort = req.query.areaSort === 'asc' ? 'asc' : 'desc';
+		const page = parseInt(req.query.page) || 1;
+		const pageSize = parseInt(req.query.pageSize) || 8;
+
 		const apartments = await Apartment.findAll();
 
-		const searchTerm = req.query.searchTerm;
+		const searchResults = apartments
+			.filter((apartment) =>
+				apartment.rooms
+					.toString()
+					.toLowerCase()
+					.includes(searchTerm.toLowerCase())
+			)
+			.sort((a, b) => {
+				if (areaSort === 'asc') {
+					return a.area_total - b.area_total;
+				} else {
+					return b.area_total - a.area_total;
+				}
+			})
+			.sort((a, b) => {
+				if (priceSort === 'asc') {
+					return a.price - b.price;
+				} else {
+					return b.price - a.price;
+				}
+			});
 
-		const searchResults = apartments.filter((product) =>
-			product.rooms.toString().toLowerCase().includes(searchTerm.toLowerCase())
-		);
+		const startIndex = (page - 1) * pageSize;
+		const endIndex = startIndex + pageSize;
+		const paginatedResults = searchResults.slice(startIndex, endIndex);
 
-		res.json(searchResults);
+		res.json(paginatedResults);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error: 'Internal Server Error' });
