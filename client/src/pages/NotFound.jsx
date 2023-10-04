@@ -39,7 +39,7 @@ export default function NotFound({ error }) {
 					lineHeight="125%"
 					fontFamily="Helvetica"
 				>
-					Page not found
+					Страница не найдена
 				</Typography>
 				<Typography
 					textAlign="center"
@@ -48,8 +48,8 @@ export default function NotFound({ error }) {
 					lineHeight="125%"
 					fontFamily="Helvetica"
 				>
-					The page you are looking for might have been removed, had its name
-					changed, or is temporarily unavailable.
+					Страница, которую вы ищете, возможно, была удалена или временно
+					недоступна, либо ее название изменено.
 				</Typography>
 				<ButtonGroup sx={{ columnGap: '15px', marginTop: '40px' }}>
 					<Button
@@ -63,7 +63,7 @@ export default function NotFound({ error }) {
 							maxHeight: '60px',
 						}}
 					>
-						Go Back
+						Назад
 					</Button>
 					<Button
 						href="/"
@@ -76,7 +76,7 @@ export default function NotFound({ error }) {
 							maxHeight: '60px',
 						}}
 					>
-						Homepage
+						Домой
 					</Button>
 				</ButtonGroup>
 			</Box>

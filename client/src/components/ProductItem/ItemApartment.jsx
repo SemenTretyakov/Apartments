@@ -126,6 +126,9 @@ export default function ItemApartment() {
 						</CardActions>
 					</Card>
 				</Stack>
+				<Typography variant="h4" mt={6}>
+					Выберите квартиру на плане этажа
+				</Typography>
 				<PlanFloor />
 			</Stack>
 		</Container>

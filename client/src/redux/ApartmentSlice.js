@@ -12,15 +12,6 @@ const apartmentsSlice = createSlice({
 		sort: '_id',
 		sortParam: 0,
 	},
-	reducers: {
-		setApartmentsData: (state, action) => {
-			state.data = action.payload.apartments;
-			state.total = action.payload.total;
-			state.page = action.payload.page;
-			state.limit = action.payload.limit;
-			state.pageCount = action.payload.pageCount;
-		},
-	},
 });
 
 export const { setApartmentsData } = apartmentsSlice.actions;
