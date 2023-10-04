@@ -52,9 +52,9 @@ export default function PlanFloor() {
 			flexWrap="wrap"
 			direction="row"
 			position="relative"
-			sx={{ transform: 'translate(50%)', top: '60px' }}
+			sx={{ transform: 'translate(50%)', top: '140px', left: '-150%' }}
 		>
-			<Link to={'/apartments/119'} component={RouterLink}>
+			<Link to={'/apartments/117'} component={RouterLink}>
 				<img
 					alt="flat"
 					className={`${apartmentClass} ${
@@ -71,7 +71,7 @@ export default function PlanFloor() {
 					}}
 				/>
 			</Link>
-			<Link to={'/apartments/120'} component={RouterLink}>
+			<Link to={'/apartments/112'} component={RouterLink}>
 				<img
 					alt="flat"
 					src={twoFl}
@@ -109,7 +109,7 @@ export default function PlanFloor() {
 					}}
 				/>
 			</Link>
-			<Link to={'/apartments/122'} component={RouterLink}>
+			<Link to={'/apartments/104'} component={RouterLink}>
 				<img
 					alt="flat"
 					src={fourFl}
@@ -139,7 +139,7 @@ export default function PlanFloor() {
 					left: '439px',
 				}}
 			/>
-			<Link to={'/apartments/124'} component={RouterLink}>
+			<Link to={'/apartments/114'} component={RouterLink}>
 				<img
 					alt="flat"
 					src={fiveFl}
@@ -158,7 +158,7 @@ export default function PlanFloor() {
 					}}
 				/>
 			</Link>
-			<Link to={'/apartments/124'} component={RouterLink}>
+			<Link to={'/apartments/119'} component={RouterLink}>
 				<img
 					alt="flat"
 					src={sixFl}

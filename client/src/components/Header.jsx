@@ -10,7 +10,7 @@ import {
 import Search from './Search';
 import logoSvg from '/logo.svg';
 
-export default function Header({ searchValue, setSearchValue }) {
+export default function Header({ searchTerm, handleSearchChange }) {
 	return (
 		<AppBar
 			position="static"
@@ -39,7 +39,10 @@ export default function Header({ searchValue, setSearchValue }) {
 							<img src={logoSvg} alt="logo" />
 							<Typography color="#333">Esoft</Typography>
 						</Link>
-						<Search searchValue={searchValue} setSearchValue={setSearchValue} />
+						<Search
+							searchTerm={searchTerm}
+							handleSearchChange={handleSearchChange}
+						/>
 					</Stack>
 				</Container>
 			</Toolbar>
