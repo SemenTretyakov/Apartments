@@ -39,7 +39,6 @@ export default function Home() {
 	useEffect(() => {
 		setCurrentPage(1);
 	}, [sortParam, searchTerm]);
-	console.log(searchResults);
 	return (
 		<>
 			<Header searchTerm={searchTerm} handleSearchChange={handleSearchChange} />

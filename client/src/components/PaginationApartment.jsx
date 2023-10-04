@@ -13,7 +13,6 @@ export default function PaginationApartment({ onPageChange, searchResults }) {
 	useEffect(() => {
 		setCurrentPage(1);
 	}, [searchResults]);
-	console.log(searchResults);
 	return (
 		<Pagination
 			sx={{ margin: '50px 0', justifyContent: 'center', display: 'flex' }}
