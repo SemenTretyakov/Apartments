@@ -39,7 +39,6 @@ export default function Home() {
 	useEffect(() => {
 		setCurrentPage(1);
 	}, [sortParam, searchTerm]);
-	console.log(searchResults);
 	return (
 		<>
 			<Header searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
@@ -51,11 +50,11 @@ export default function Home() {
 					{isLoading
 						? [...new Array(3)].map((_, index) => (
 								<SkeletonApartments key={index} />
-						))
+						  ))
 						: searchResults &&
-						searchResults.map((apartment) => (
+						  searchResults.map((apartment) => (
 								<ApartmentCard key={apartment.id} apartment={apartment} />
-						))}
+						  ))}
 				</div>
 				<PaginationApartment
 					onPageChange={handlePageChange}
