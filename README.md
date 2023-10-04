@@ -10,7 +10,8 @@
 
 1. Перейдите в директорию `client` (cd client).
 2. Установите зависимости, выполнив команду: `yarn install || npm install`
-3. Запустите клиентскую часть приложения с помощью команды: `yarn preview || npm run preview`
+3. Выполните команду `yarn build npm run build`
+4. Запустите клиентскую часть приложения с помощью команды: `yarn preview || npm run preview`
 
 ### Серверная часть
 
